@@ -10,6 +10,8 @@ public class Boyo : MonoBehaviour
     public float t;
     bool isHere = false;
     float direction = 1;
+    public Transform rest;
+    public Transform jump;
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +22,8 @@ public class Boyo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 pos = transform.position;
-        pos.y += curve.Evaluate(t) * direction;
+        
+        
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
@@ -32,7 +34,7 @@ public class Boyo : MonoBehaviour
         if(isHere == true)
         {
             t += Time.deltaTime * direction;
-            transform.position = pos;
+            transform.position = Vector2.Lerp(rest.position, jump.position, curve.Evaluate(t));
             if(t > 1)
             {
                 isHere = false;
