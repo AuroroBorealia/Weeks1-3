@@ -36,6 +36,8 @@ public class Joint1 : MonoBehaviour
             direction = -1; 
         }
 
+
+        //actually making the turn happen
         Vector3 rot = transform.eulerAngles;
 
         rot.z += direction;
@@ -44,7 +46,7 @@ public class Joint1 : MonoBehaviour
 
         counter++;
 
-
+        // using the counter to make the lid turn and stop at certain points
         if(counter > endAngle || counter < startAngle)
         {
             turningOn = false;
@@ -62,6 +64,7 @@ public class Joint1 : MonoBehaviour
             turningOn = true;
         }
 
+        // activate the void turn function
         if (turningOn == true) {
 
             turn();

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class LeftLidTurn : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class LeftLidTurn : MonoBehaviour
     bool turningOn = false;
     bool isOpen = false;
     float startAngle = 0;
-    float endAngle = -178;
+    float endAngle = 178;
+
+    public int counter = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -33,11 +36,22 @@ public class LeftLidTurn : MonoBehaviour
             direction = 1;
         }
 
+        //actually making the turn happen
         Vector3 rot = transform.eulerAngles;
 
         rot.z += direction;
 
         transform.eulerAngles = rot;
+
+        counter++;
+
+        // using the counter to make the lid turn and stop at certain points
+        if (counter > endAngle || counter < startAngle)
+        {
+            turningOn = false;
+            counter = 0;
+            isOpen = !isOpen;
+        }
     }
 
     // Update is called once per frame
@@ -49,6 +63,7 @@ public class LeftLidTurn : MonoBehaviour
             turningOn = !turningOn;
         }
 
+        // activate the void turn
         if (turningOn == true)
         {
 

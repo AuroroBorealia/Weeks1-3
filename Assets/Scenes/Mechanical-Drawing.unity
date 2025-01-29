@@ -1210,14 +1210,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2132966442}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df93e0a280a617b43932676232965dde, type: 3}
+  m_Script: {fileID: 11500000, guid: c15f775ad5e37dd4997c8c3ec03afa9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turningOn: 0
-  isOpen: 0
-  startAngle: 0
-  endAngle: 178
-  counter: -1
+  counter: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
